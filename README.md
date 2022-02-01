@@ -10,6 +10,7 @@ A template to use for creating _Nim_ applications that will be converted to an A
 - `src`: Application source.
   - `myapp.nim`: Main module.
 - `myappimagetool-x86_64.AppImage`: AppImage of [_appimagetool_](https://github.com/AppImage/AppImageKit) to output the final AppImage. 
+- `LICENSE`: Application's license (see https://choosealicense.com).
 - `myapp.nimble`: Configuration file to define the [dependencies and more](https://github.com/nim-lang/nimble#creating-packages) of the _nimble_ package.
 - `README.md`: Description of the application.
 
