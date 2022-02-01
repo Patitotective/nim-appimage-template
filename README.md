@@ -1,5 +1,5 @@
 # Nim-AppImage-Template
-A template to use for creating _Nim_ applications that will be converted to an AppImage.
+A template for creating _Nim_ applications that will get converted to an AppImage.
 
 ## Structure
 - `myapp.AppDir`: Here goes all the AppImage data.
@@ -14,7 +14,7 @@ A template to use for creating _Nim_ applications that will be converted to an A
 - `myapp.nimble`: Configuration file to define the [dependencies and more](https://github.com/nim-lang/nimble#creating-packages) of the _nimble_ package.
 - `README.md`: Description of the application.
 
-## Desktop file
+## Desktop File
 The file allocated at `myapp.AppDir/myapp.desktop` requires to define the following entries:
 - `Type`: _Application_, _Link_ or _Directory_.
 - `Name`: Application's name.
