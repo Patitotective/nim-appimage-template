@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=My App
+Categories=Utility;Development
+Icon=myapp
+
+X-AppImage-Version=0.1.0
+X-AppImage-Arch=x86_64
