@@ -9,7 +9,6 @@ A template for creating _Nim_ applications that will get converted to an AppImag
   - `myapp.svg`: Application’s icon in the best available quality.
 - `src`: Application source.
   - `myapp.nim`: Main module.
-- `myappimagetool-x86_64.AppImage`: AppImage of [_appimagetool_](https://github.com/AppImage/AppImageKit) to output the final AppImage. 
 - `LICENSE`: Application's license (see https://choosealicense.com).
 - `myapp.nimble`: Configuration file to define the [dependencies and more](https://github.com/nim-lang/nimble#creating-packages) of the _nimble_ package.
 - `README.md`: Description of the application.
@@ -21,6 +20,7 @@ The file allocated at `myapp.AppDir/myapp.desktop` requires to define the follow
 - `Categories`: A list of categories for your application separated by a semi-colon.  
   ([List of the valid categories](https://specifications.freedesktop.org/menu-spec/latest/apa.html))
 - `Icon`: Application's icon filename, without the extension.  
+- `Èxec`: A command line consisting on an executable program.
 
 Optional entries:
 - `X-AppImage-Name`: Application's name. Used to relate two AppImages of the same application but different versions.
@@ -34,26 +34,25 @@ By default `myapp.desktop` file looks like:
 [Desktop Entry]
 Type=Application
 Name=My App
-Categories=Utility;Development
+Categories=Utility;
 Icon=myapp
+Exec=AppRun
 
 X-AppImage-Version=0.1.0
 X-AppImage-Arch=x86_64
 ```
 
 ## Deploy
-To generate the actual AppImage we will use [_appimagetool_](https://github.com/AppImage/AppImageKit).
+To generate the actual AppImage we will use [_appimagetool_](https://appimage.github.io/appimagetool/). So you may want to download it.  
 But before generating it we must compile our application as following:
+```sh
+nim c --outdir:myapp.AppDir --out:myapp.AppDir/AppRun src/myapp.nim # Or cpp
 ```
-nim c --outdir:myapp.AppDir --out:myapp.AppDir/AppRun src/myapp.nim
+Now we just need to use [appimagetool](https://appimage.github.io/appimagetool/) to generate the AppImage.
 ```
-Now we just need to use _appimagetool_ to generate the AppImage.
-```
-./appimagetool-x86_64.AppImage myapp.AppDir/
+appimagetool myapp.AppDir/
 ```
 This will output a new AppImage with the name of `My_App-x86_64.AppImage`.
-
-(If your application does not suit the already downloaded _appimagetool_ or you want to update it you must download [another version](https://github.com/AppImage/AppImageKit/releases/tag/continuous)).
 
 ## More
 - [AppImage website](https://appimage.org).
